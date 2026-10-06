@@ -20,8 +20,12 @@ namespace Solution
 
                 Debug.Log("You win");
                 //add code to manage leaderboard scores
-    
-                return true;
+                int scorerecieved = CalculateScore();
+                string PlayerName = mapGenerator.player.Name;
+                leaderboard.RecordScore(new PlayerScore(PlayerName, scorerecieved));
+                leaderboard.PrintScores();
+                leaderboard.ShowleaderBoard();
+                return true;    
             }
             else {
                 Debug.Log("Need Item " + ItemToOpen + " to Open");
